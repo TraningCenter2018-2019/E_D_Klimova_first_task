@@ -1,0 +1,24 @@
+@startuml
+
+MainMenu -> GenerateMenu: Get generator menu request
+MainMenu -> GameMenu: Get game menu request
+
+GameMenu -> ViewCrossword: View crossword request
+GenerateMenu -> ViewCrossword: View crossword request
+
+MainMenu -> ViewUtils: Data validation request
+ViewUtils -> MainMenu: Data validation response
+
+GameMenu -> ViewUtils: Data validation request
+ViewUtils -> GameMenu: Data validation response
+
+GenerateMenu -> ViewUtils: Data validation request
+ViewUtils -> GenerateMenu: Data validation response
+
+GameMenu -> Game: Game request
+Game -> GameMenu: Get view crossword request
+
+GenerateMenu -> Generate: Generate request
+Generate -> GenerateMenu: Get view crossword request
+
+@enduml
